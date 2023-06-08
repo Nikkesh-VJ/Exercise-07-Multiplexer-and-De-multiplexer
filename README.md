@@ -54,9 +54,39 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by:NIKKESH
+RegisterNumber:2122222050042  
 */
+FOR MULTIPLEXER
+```
+module mux(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire P,Q,R,S,S0c,S1c;
+not(S0c,S0);
+nor(S1c,S1);
+and (P,S0c,S1c,I0);
+and(Q,S0c,S1,I1);
+and(R,S0,S1c,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+```
+FOR DE-MULTIPLEXER
+```
+module demux(Y0,Y1,Y2,Y3,S0,S1,I);
+input I,S0,S1;
+output Y0,Y1,Y2,Y3;
+wire S0c,S1c;
+not(S0c,S0);
+nor(S1c,S1);
+and (Y0,I,S0c,S1c);
+and(Y1,I,S0c,S1);
+and(Y2,I,S0,S1c);
+and(Y3,I,S0,S1);
+endmodule
+```
+
 
 
 
@@ -64,7 +94,13 @@ RegisterNumber:
 
 
 ### RTL LOGIC  
+FOR MULTIPLEXER
 
+![muxrtl](https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/f8a38dd8-33ac-453c-94c4-7b8b8431c401)
+
+FOR DEMULTIPLEXER
+
+![demux rtl](https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/d36749f1-daa9-42c4-9e6e-5c8fbd1e1dde)
 
 
 
@@ -74,15 +110,25 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
+FOR MULTIPLEXER
+
+![muxtd](https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/3b6ef8bb-6372-4c86-b5fe-84ed11a71bff)
 
 
+FOR DEMULTIPLEXER
 
+![demuxtd](https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/aeba9ec9-9ccc-4c3f-a0a6-47ee3c258dd8)
 
 ### TRUTH TABLE 
+FOR MULTIPLEXER
 
+<img width="235" alt="muxtt" src="https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/a3e62e1c-cc82-4a70-8cd1-c8aac1248edc">
 
+FOR DEMULTIPLEXER
 
-
+<img width="614" alt="demuxtt" src="https://github.com/Nikkesh-VJ/Exercise-07-Multiplexer-and-De-multiplexer/assets/130572280/f3563c44-86c8-4fb6-94e2-028b17a22557">
 
 
 ### RESULTS 
+Therefore 4X1 multiplexer and 1X4 de multiplexer are successfully implemented using verilog
+and validate its outputs
